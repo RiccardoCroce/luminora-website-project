@@ -1,0 +1,39 @@
+La Documentazione del mio progetto sull'azienda di impianti fotovoltaici: luminora.
+Il progetto è composto da questi seguenti file: 
+CreaTabella.php: Inizializzare la tabella e riempire la tabella di tuple
+ConnessioneScuola.php: Connessione con il database
+
+loginDentro.php: Login della pagina principale 
+DaEntrare.php: Controlla se l'utente e la password sono registrati nel db
+esci.php: Logout dalla pagina principale
+
+CreaAccount.php: Creazione di un account con utente e password 
+PaginaCreaAccount.php: Inserimento delle credenziali sul db
+
+PaginaPrincipaleLuminora.php: l'index del progetto
+visualizzazioneImpianti.php: visualizza gli impianti dal db con implementato la modifica del finecontratto e royalties, con elimina l'impianto
+
+InserimentoImpianto.php: Inserimento di un impianto
+PaginaLuminoraInserimento.php: Inserimento dell'impianto su db
+
+CambiamentoContratto.php: Cambia il contratto di un impianto
+PaginaLuminoraContratto.php: Modifica del contratto nel db 
+
+CambiamentoRoyalties.php: Cambia le royalties di un impianto
+PaginaLuminoraRoyalties.php: Modifica le royalties nel db
+
+CancellazioneTabella.php: Cancella l'impianto o l'intera tabella richiesta
+PaginaLuminoraCancellazione.php: Cancella un impianto o un intera tabella nel db 
+
+Luminora.css: Grafica (Work in progress)
+
+Le royalties sono somme di denaro che il proprietario di un grande impianto solare 
+(solitamente un parco fotovoltaico a terra) deve pagare agli enti locali (Comuni o Regioni) come "affitto" o ricompensa per l'uso del territorio.
+
+Work in progress:
+
+StatisticheLuminora.php: Pagina con grafici e riepiloghi monetari.
+
+GeneraReport.php: Script per generare file scaricabili (Excel/PDF). (in visualizzazioneImpianti.php)
+
+Menu a tendina per implementazioni

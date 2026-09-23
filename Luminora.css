@@ -1,0 +1,861 @@
+/* ============================================================
+   LUMINORA ITALIA — CSS FOTOVOLTAICO
+   Design: Solar Energy · Energia pulita · Luce e territorio
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+/* ── VARIABILI ─────────────────────────────────────────────── */
+:root {
+  --sol-oro:       #F5A623;
+  --sol-ambra:     #E8870A;
+  --sol-chiaro:    #FDE68A;
+  --verde-scuro:   #1B4332;
+  --verde-medio:   #2D6A4F;
+  --verde-vivo:    #40916C;
+  --verde-menta:   #95D5B2;
+  --bianco:        #FAFAF8;
+  --grigio-caldo:  #F5F0E8;
+  --grigio-mid:    #C8C0B0;
+  --testo-scuro:   #1A1A14;
+  --testo-medio:   #4A4438;
+  --errore:        #C0392B;
+  --successo:      #1B4332;
+
+  --ombra-morbida: 0 4px 24px rgba(27,67,50,0.10);
+  --ombra-forte:   0 8px 40px rgba(27,67,50,0.18);
+  --ombra-sole:    0 4px 32px rgba(245,166,35,0.25);
+
+  --radius-card:   16px;
+  --radius-btn:    10px;
+  --radius-input:  8px;
+  --radius-pill:   100px;
+
+  --font-display:  'Syne', sans-serif;
+  --font-body:     'DM Sans', sans-serif;
+
+  --transition:    0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── RESET E BASE ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--grigio-caldo);
+  color: var(--testo-scuro);
+  min-height: 100vh;
+  line-height: 1.6;
+
+  /* --- NUOVO SFONDO CON LUMINORA.PNG --- */
+  background-image: 
+    linear-gradient(rgba(250, 250, 248, 0.85), rgba(240, 235, 224, 0.85)), /* Overlay chiaro per leggibilità */
+    url('Luminora.png'); 
+  background-attachment: fixed; /* Lo sfondo resta fermo mentre scrolli */
+  background-size: cover;       /* Copre tutta la pagina */
+  background-position: center;  /* Centra l'immagine */
+  background-repeat: no-repeat;
+}
+
+/* ── LAYOUT PAGINA ─────────────────────────────────────────── */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 60px;
+}
+
+.page-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+/* ── HEADER / LOGO ─────────────────────────────────────────── */
+.site-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  box-shadow: var(--ombra-sole);
+}
+
+.logo-sole {
+  font-size: 3em;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 12px rgba(245,166,35,0.5));
+  animation: soleGiro 12s linear infinite;
+}
+
+@keyframes soleGiro {
+  0%   { filter: drop-shadow(0 2px 12px rgba(245,166,35,0.4)); }
+  50%  { filter: drop-shadow(0 2px 24px rgba(245,166,35,0.8)); }
+  100% { filter: drop-shadow(0 2px 12px rgba(245,166,35,0.4)); }
+}
+
+h1, .site-title {
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  font-weight: 800;
+  color: var(--verde-scuro);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h2, .page-title {
+  font-family: var(--font-display);
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--verde-scuro);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--verde-medio);
+}
+
+p.subtitle {
+  color: var(--testo-medio);
+  font-size: 0.95em;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* ── DIVISORE SOLARE ───────────────────────────────────────── */
+.solar-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sol-ambra), var(--sol-oro), var(--sol-chiaro));
+  border: none;
+  border-radius: 4px;
+  margin: 12px auto 28px;
+  position: relative;
+}
+
+.solar-divider::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 6px;
+  background: inherit;
+  filter: blur(4px);
+  opacity: 0.5;
+}
+
+hr {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sol-ambra), var(--sol-oro), var(--sol-chiaro));
+  border: none;
+  border-radius: 4px;
+  margin: 12px auto 28px;
+}
+
+/* ── CARD ──────────────────────────────────────────────────── */
+.card {
+  background: var(--bianco);
+  border-radius: var(--radius-card);
+  box-shadow: var(--ombra-morbida);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 460px;
+  border: 1px solid rgba(245,166,35,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sol-ambra), var(--sol-oro), var(--verde-vivo));
+}
+
+/* ── FORM ──────────────────────────────────────────────────── */
+form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.88em;
+  color: var(--verde-scuro);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #DDD8CC;
+  border-radius: var(--radius-input);
+  font-family: var(--font-body);
+  font-size: 0.97em;
+  color: var(--testo-scuro);
+  background: #FDFCF9;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  outline: none;
+  appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--sol-oro);
+  box-shadow: 0 0 0 3px rgba(245,166,35,0.18);
+  background: #FFFEF9;
+}
+
+input::placeholder {
+  color: var(--grigio-mid);
+}
+
+/* ── BOTTONI ───────────────────────────────────────────────── */
+
+/* Bottone primario — verde */
+button,
+input[type="submit"],
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, var(--verde-medio) 0%, var(--verde-scuro) 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.97em;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  box-shadow: 0 2px 12px rgba(27,67,50,0.20);
+  width: 100%;
+  margin-top: 8px;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27,67,50,0.28);
+  background: linear-gradient(135deg, var(--verde-vivo) 0%, var(--verde-medio) 100%);
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Bottone sole — giallo/ambra */
+.btn-sole,
+input[type="submit"].btn-sole {
+  background: linear-gradient(135deg, var(--sol-oro) 0%, var(--sol-ambra) 100%);
+  color: var(--testo-scuro);
+  box-shadow: 0 2px 12px rgba(245,166,35,0.30);
+}
+
+.btn-sole:hover {
+  background: linear-gradient(135deg, #FBB830 0%, var(--sol-oro) 100%);
+  box-shadow: var(--ombra-sole);
+  color: var(--testo-scuro);
+}
+
+/* Bottone pericolo — rosso */
+.btn-danger {
+  background: linear-gradient(135deg, #C0392B 0%, #922B21 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(192,57,43,0.25);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+  box-shadow: 0 6px 20px rgba(192,57,43,0.35);
+}
+
+/* Bottone logout */
+.btn-logout {
+  background: linear-gradient(135deg, #C0392B 0%, #922B21 100%);
+  color: #fff !important;
+  box-shadow: 0 2px 12px rgba(192,57,43,0.25);
+}
+
+.btn-logout:hover {
+  background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%) !important;
+}
+
+/* Bottone piccolo inline (tabella) */
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  font-size: 0.80em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+  width: auto;
+  margin-top: 0;
+}
+
+.btn-sm-edit {
+  background: linear-gradient(135deg, var(--sol-chiaro), var(--sol-oro));
+  color: var(--testo-scuro);
+}
+
+.btn-sm-edit:hover { transform: translateY(-1px); box-shadow: var(--ombra-sole); }
+
+.btn-sm-save {
+  background: linear-gradient(135deg, var(--verde-vivo), var(--verde-scuro));
+  color: #fff;
+}
+
+.btn-sm-save:hover { transform: translateY(-1px); }
+
+.btn-sm-cancel {
+  background: #9E9485;
+  color: #fff;
+}
+
+.btn-sm-cancel:hover { background: #7A7068; transform: translateY(-1px); }
+
+.btn-sm-delete {
+  background: linear-gradient(135deg, #E74C3C, #C0392B);
+  color: #fff;
+}
+
+.btn-sm-delete:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(192,57,43,0.3); }
+
+/* ── LINK ──────────────────────────────────────────────────── */
+a {
+  color: var(--verde-medio);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--verde-vivo);
+}
+
+a.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: var(--verde-scuro);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-top: 20px;
+  transition: background var(--transition), transform var(--transition);
+  box-shadow: var(--ombra-morbida);
+}
+
+a.btn-link:hover {
+  background: var(--verde-vivo);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── MESSAGGI FEEDBACK ─────────────────────────────────────── */
+.msg {
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.95em;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.msg-ok, .success {
+  background: #D8F3DC;
+  color: var(--successo);
+  border: 1px solid #95D5B2;
+}
+
+.msg-err, .error {
+  background: #FDEDEB;
+  color: var(--errore);
+  border: 1px solid #F1948A;
+}
+
+/* ── TABELLA IMPIANTI ──────────────────────────────────────── */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-card);
+  box-shadow: var(--ombra-forte);
+  margin-top: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bianco);
+  font-size: 0.90em;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+th {
+  background: linear-gradient(135deg, var(--verde-scuro) 0%, var(--verde-medio) 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th:first-child { border-radius: 0; }
+
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #EDE8DE;
+  color: var(--testo-scuro);
+  vertical-align: middle;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background var(--transition);
+}
+
+tbody tr:nth-child(even) {
+  background: #F7F4EE;
+}
+
+tbody tr:hover {
+  background: #FDF6E3;
+}
+
+/* ID badge */
+td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--sol-ambra);
+  font-size: 0.95em;
+}
+
+/* ── DARK MODE (menu principale) ───────────────────────────── */
+body.dark {
+  background-color: #0F1F14;
+  /* Overlay più scuro per il tema Dark */
+  background-image: 
+    linear-gradient(rgba(15, 31, 20, 0.9), rgba(22, 42, 28, 0.9)), 
+    url('Luminora.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: #E8E0D0;
+}
+
+body.dark h1, body.dark h2, body.dark .page-title, body.dark .site-title {
+  color: var(--sol-oro);
+}
+
+body.dark .card {
+  background: #1A2E20;
+  border-color: rgba(245,166,35,0.20);
+}
+
+body.dark p.subtitle {
+  color: #9E9485;
+}
+
+body.dark a.btn-link {
+  background: var(--verde-vivo);
+}
+
+/* ── MENU PRINCIPALE ───────────────────────────────────────── */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 680px;
+  margin-top: 24px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bianco);
+  border: 1.5px solid #EDE8DE;
+  border-radius: var(--radius-card);
+  color: var(--testo-scuro);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92em;
+  text-decoration: none;
+  box-shadow: var(--ombra-morbida);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombra-forte);
+  border-color: var(--sol-oro);
+  background: #FFFEF7;
+  color: var(--verde-scuro);
+}
+
+.menu-item .menu-icon {
+  font-size: 1.4em;
+  flex-shrink: 0;
+}
+
+.menu-item.danger {
+  border-color: rgba(192,57,43,0.20);
+}
+
+.menu-item.danger:hover {
+  border-color: var(--errore);
+  background: #FEF6F5;
+}
+
+.menu-item.logout {
+  border-color: rgba(192,57,43,0.15);
+  color: var(--errore);
+}
+
+.menu-item.logout:hover {
+  background: var(--errore);
+  color: #fff;
+  border-color: var(--errore);
+}
+
+body.dark .menu-item {
+  background: #1E3526;
+  border-color: rgba(245,166,35,0.15);
+  color: #E8E0D0;
+}
+
+body.dark .menu-item:hover {
+  background: #2D6A4F;
+  border-color: var(--sol-oro);
+  color: #fff;
+}
+
+/* ── WIDGET VISITA ─────────────────────────────────────────── */
+.visita-badge {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245,166,35,0.30);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 0.80em;
+  color: var(--testo-medio);
+  box-shadow: var(--ombra-morbida);
+  max-width: 240px;
+  line-height: 1.5;
+}
+
+body.dark .visita-badge {
+  background: rgba(15,31,20,0.92);
+  color: #9E9485;
+  border-color: rgba(245,166,35,0.20);
+}
+
+.visita-badge strong {
+  color: var(--verde-scuro);
+  font-family: var(--font-display);
+}
+
+body.dark .visita-badge strong {
+  color: var(--sol-oro);
+}
+
+/* ── TOGGLE TEMA ───────────────────────────────────────────── */
+.tema-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--sol-oro), var(--sol-ambra));
+  color: var(--testo-scuro);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85em;
+  cursor: pointer;
+  box-shadow: var(--ombra-sole);
+  transition: transform var(--transition), box-shadow var(--transition);
+  z-index: 1000;
+  width: auto;
+  margin-top: 0;
+}
+
+.tema-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(245,166,35,0.45);
+}
+
+/* ── ANIMAZIONE ENTRATA ────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card, h2, .menu-grid, .table-wrapper {
+  animation: fadeUp 0.5s ease both;
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.05s; }
+.menu-item:nth-child(2) { animation-delay: 0.10s; }
+.menu-item:nth-child(3) { animation-delay: 0.15s; }
+.menu-item:nth-child(4) { animation-delay: 0.20s; }
+.menu-item:nth-child(5) { animation-delay: 0.25s; }
+.menu-item:nth-child(6) { animation-delay: 0.30s; }
+
+/* ── ELIMINAZIONE TOTALE ───────────────────────────────────── */
+.delete-all-wrap {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.btn-danger-all {
+  background: linear-gradient(135deg, #C0392B, #7B241C);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95em;
+  padding: 13px 32px;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.30);
+  transition: transform var(--transition), box-shadow var(--transition);
+  width: auto;
+  margin-top: 0;
+}
+
+.btn-danger-all:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192,57,43,0.40);
+}
+
+/* ── BOTTONE RITORNA ───────────────────────────────────────── */
+.centered-button {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--verde-menta) !important; /* Colore chiaro di base */
+  color: #1A1A14 !important; /* Grigio molto scuro SEMPRE VISIBILE */
+  text-decoration: none !important;
+  font-weight: 800 !important;
+  border-radius: var(--radius-btn);
+  transition: all 0.3s ease;
+  border: 2px solid var(--verde-scuro);
+}
+
+.btn-back:hover, 
+.btn-back:active, 
+.btn-back:visited {
+  background-color: var(--sol-oro) !important; /* Cambia in oro al passaggio */
+  color: #1A1A14 !important; /* Il testo DEVE restare scuro */
+  transform: translateY(-2px);
+  box-shadow: var(--ombra-morbida);
+}
+
+/* ── CONTAINER PAGINA FORM ─────────────────────────────────── */
+.form-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 60px;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  h2, .page-title {
+    font-size: 1.4em;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visita-badge {
+    max-width: 180px;
+    font-size: 0.74em;
+  }
+
+  th, td {
+    padding: 10px 10px;
+    font-size: 0.82em;
+  }
+}
+
+/* ── UTILITY ───────────────────────────────────────────────── */
+.text-center { text-align: center; }
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.w-full { width: 100%; }
+/* Riposizionamento del tasto tema */
+#cambiaTema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: auto; /* Sovrascrive il width 100% dei bottoni standard */
+    padding: 8px 16px;
+    font-size: 0.85em;
+    z-index: 1000;
+    margin: 0;
+}
+
+/* Info visita in alto a sinistra (opzionale, per pulizia) */
+.top-left-message {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 0.75em;
+    line-height: 1.3;
+    opacity: 0.8;
+    color: var(--testo-medio);
+}
+
+/* Centratura logo e titoli */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Griglia per i link CRUD (stile menu-grid che hai già nel CSS) */
+.links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 30px;
+}
+
+.links-container p { margin: 0; }
+
+.links-container a {
+    display: block;
+    padding: 15px;
+    background: var(--bianco);
+    border: 1px solid var(--grigio-mid);
+    border-radius: var(--radius-card);
+    transition: all var(--transition);
+}
+
+.links-container a:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--ombra-morbida);
+    border-color: var(--sol-oro);
+}
+
+body.dark .links-container a {
+    background: #1A2E20;
+    color: #fff;
+}
+
+/* --- PERSONALIZZAZIONE LOGOUT --- */
+.links-container a.logout {
+    background: linear-gradient(135deg, #C0392B 0%, #922B21 100%); /* Sfondo rosso */
+    color: var(--testo-scuro) !important; /* Grigio molto scuro #1A1A14 */
+    border-color: #922B21;
+    font-weight: 800; /* Extra bold per farlo risaltare sul rosso */
+    letter-spacing: 0.05em;
+}
+
+.links-container a.logout:hover {
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+    color: #000000 !important; /* Diventa nero puro al passaggio del mouse */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(192,57,43,0.4);
+}
